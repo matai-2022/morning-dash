@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer } from 'react'
 
-import * as api from './clientApi'
+import * as api from './api'
 
-import Dashboard from './Dashboard'
-import Widget from './Widget'
+import Dashboard from './Dashboard.jsx'
+import Widget from './Widget.jsx'
 
 function App () {
   return (
