@@ -1,0 +1,32 @@
+body {
+background-color: #40916C;
+color: #D8F3DC;
+font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.container{
+display: flex;
+justify-content: center;
+flex-wrap:wrap;
+}
+
+.header{
+  /* background-color: #05668D; */
+  padding: 5px;
+  text-align: center;
+  font-size: 2.5vw;
+  text-shadow: 5px 5px 3px #081c1578;
+}
+
+.widget{
+  text-shadow: 2px 2px 1px #081c1578;
+  border: 3px solid #95D5B2;
+  border-radius: 3%;
+ box-shadow: 5px 5px 3px #081c1578;
+  margin: 25px;
+  padding: 10vw;
+  flex-basis:auto;
+  
+  
+}
