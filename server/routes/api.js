@@ -27,4 +27,18 @@ router.get('/spotify', async (req, res) => {
   }
 })
 
+//news headline
+
+router.get('/news', async (req, res) => {
+  try {
+    const newsResponse = await request.get(
+      'https://newsapi.org/v2/top-headlines?country=nz&apiKey=581d6ac2ce7e463d80507714be7aa2ee'
+    )
+    res.json(newsResponse.body)
+  } catch (error) {
+    console.error(error.message)
+    res.sendStatus(500)
+  }
+})
+
 module.exports = router
