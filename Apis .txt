@@ -1,0 +1,12 @@
+
+
+news headlines
+
+method:get
+
+endpoint with key:
+https://newsapi.org/v2/top-headlines?country=nz&apiKey=581d6ac2ce7e463d80507714be7aa2ee
+
+usage:get live news headlines from nz
+
+returns: a JSON object with the results in an array
