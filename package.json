@@ -1,15 +1,16 @@
 {
-  "name": "boilerplate-fullstack",
-  "version": "2.0.0",
+  "name": "Morning Dash",
+  "version": "1.0.0",
   "main": "server/index.js",
   "license": "MIT",
   "keywords": [
-    "fullstack"
+    "dashboard",
+    "widgets"
   ],
   "scripts": {
     "start": "node server",
     "test": "jest",
-    "test:watch": "jest --noStackTrace --watchAll",
+    "test:watch": "jest --verbose --noStackTrace --watchAll",
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
     "dev:server": "nodemon --watch server server/index.js",
@@ -38,10 +39,10 @@
     ]
   },
   "dependencies": {
-    "sqlite3": "^5.0.8",
     "express": "^4.17.2",
     "knex": "^2.1.0",
     "pg": "^8.7.1",
+    "sqlite3": "^5.0.8",
     "superagent": "7.1.1"
   },
   "devDependencies": {
@@ -63,7 +64,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.16",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
