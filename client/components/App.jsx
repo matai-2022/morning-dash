@@ -5,9 +5,10 @@ import * as api from '../api'
 import Dashboard from './Dashboard.jsx'
 import Widget from './Widget.jsx'
 
-function App () {
+function App() {
   return (
     <>
+      <Dashboard />
     </>
   )
 }
