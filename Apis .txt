@@ -6,7 +6,26 @@ method:get
 
 endpoint with key:
 https://newsapi.org/v2/top-headlines?country=nz&apiKey=581d6ac2ce7e463d80507714be7aa2ee
-
+https://newsapi.org/docs/get-started
 usage:get live news headlines from nz
 
 returns: a JSON object with the results in an array
+
+////////////////////////////////////////////////////////////////////////
+
+auckland traffic api
+
+method :get
+
+https://nzta.govt.nz/traffic-and-travel-information/use-our-data/about-the-apis/auckland-traffic-api/
+
+needs api username and password in header
+
+Host:infoconnect1.highwayinfo.govt.nz
+	User-Agent: Custom Application
+	Accept-Encoding:gzip,deflate
+	username: Your API Username
+	password: Your API Password
+
+  Traffic Congestion: This is a list of locations on the Auckland Highway Network, with the congestion status of each location.
+  This is the same information which is used to produce the coloured map links on the Auckland Traffic Website.
