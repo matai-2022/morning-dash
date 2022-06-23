@@ -3,10 +3,5 @@ import ReactDOM from 'react-dom'
 import App from './components/App'
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Router>
-      <App />
-    </Router>,
-    document.getElementById('app')
-  )
+  ReactDOM.render(<App />, document.getElementById('app'))
 })

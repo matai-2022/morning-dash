@@ -1,7 +1,5 @@
 import React from 'react'
 
-function Widget () {
-
-}
+function Widget() {}
 
 export default Widget
