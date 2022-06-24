@@ -15,11 +15,7 @@ export default function Widget({name}) {
     }
   }, [])
 
-  const display = loading ? 'Loading widget' : 
-    (!data ? 'Could not load widget': 
-    lookup[name]({data})) 
-
-  return (<div className={name}>{display}</div>)
+  return loading ? 'Loading widget' : lookup[name]({data}) || 'Could not load widget'
 }
 
 // Widget component lookup
@@ -34,32 +30,42 @@ const lookup = {
 // Widget components
 
 function KanyeWidget ({data}) {
+  const style = {
+    color: 'green'
+  }
+
   return (
-      <p>{data.quote}</p>
+  <div style={style}>
+    <p>{data.quote}</p>
+  </div>
   )
 }
 
 function NewsWidget ({ data }) {
   return (
-      <a href={data.url} target="_blank" rel="noreferrer">
-        <h1>{data.title}</h1>
-      </a>
+  <div>
+    <a href={data.url} target="_blank" rel="noreferrer">
+      <h1>{data.title}</h1>
+    </a>
+  </div>
   )
 }
 
 function AffirmationWidget({data}) {
   return (
-      <p>{data.affirmation}</p>
+  <div>
+    <p>{data.affirmation}</p>
+  </div>
   )
 }
 
 function SpotifyWidget ({data}) {
   return (
-    <>
-      <a href={data.url} target="_blank" rel="noreferrer">
-        <h1>{data.title}</h1>
-      </a>
-      <h2>{data.artist}</h2>
-    </>
+  <div>
+    <a href={data.url} target="_blank" rel="noreferrer">
+      <h1>{data.title}</h1>
+    </a>
+    <h2>{data.artist}</h2>
+  </div>
   )
 }
