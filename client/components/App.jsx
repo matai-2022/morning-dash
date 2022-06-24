@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-import * as api from '../api'
-
-import Dashboard from './Dashboard.jsx'
+import Widget from './Widget.jsx'
 import AddWidget from './AddWidget.jsx'
 
 function App() {
   const [isAddWidgetVisible, setIsAddWidgetVisible] = useState(false)
-  const [widgetList, setWidgetList] = useState(['spotify', 'kanye', 'affirmation'])
+  const [widgets, setWidgets] = useState(['spotify', 'kanye', 'affirmation'])
 
   function handleClick(event) {
     setIsAddWidgetVisible(true)
@@ -27,7 +25,12 @@ function App() {
       )}
 
       <div className="container">
-        <Dashboard widgetList={widgetList} />
+      {widgets.map((widget, i) => {
+        return (
+        <div className='widget' key={`${i}${widget}`}>
+          <Widget name={widget} />
+        </div>)
+      })}
       </div>
     </>
   )
