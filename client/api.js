@@ -1,34 +1,32 @@
 import request from 'superagent'
 
-const spotifyUrl = '/api/v1/spotify'
-const newsUrl = '/api/v1/news'
-const kanyeUrl = 'api/v1/kanye'
+// Widget API lookup
 
-//get spotify function
-
-const getSpotify = async () => {
-  const res = await request.get(spotifyUrl)
-  return res.body
-}
-
-//get news function
-
-const getNews = async () => {
-  const res = await request.get(newsUrl)
-  return res.body
-}
-
-//get kanye function
-
-const getKanye = async () => {
-  const res = await request.get(kanyeUrl)
-  return res.body
-}
-
-const lookup = {
+export const lookup = {
   kanye: getKanye,
   spotify: getSpotify,
+  affirmation: getAffirmation,
   news: getNews,
 }
 
-export { getSpotify, getNews, getKanye, lookup }
+// Widget APIs
+
+export async function getSpotify() {
+  const res = await request.get('/api/v1/spotify')
+  return res.body
+}
+
+export async function getKanye() {
+  const res = await request.get('https://api.kanye.rest')
+  return res.body
+}
+
+export async function getAffirmation() {
+  const res = await request.get('/api/v1/affirmation')
+  return res.body
+}
+
+export async function getNews() {
+  const res = await request.get('/api/v1/news')
+  return res.body
+}

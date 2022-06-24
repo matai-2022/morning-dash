@@ -17,7 +17,7 @@ router.get('/spotify', async (req, res) => {
     const tokenResponse = await tokenRequest
     const token = tokenResponse.body.access_token
 
-    const musicRequest = request
+    const dataRequest = request
       .get('https://api.spotify.com/v1/recommendations')
       .set('Authorization', `Bearer ${token}`)
       .query({
@@ -27,12 +27,11 @@ router.get('/spotify', async (req, res) => {
         limit: 1,
       })
 
-    const musicResponse = await musicRequest
-    console.log(musicResponse)
+    const dataResponse = await dataRequest
     const track = {
-      title: musicResponse.body.tracks[0].name,
-      url: musicResponse.body.tracks[0].href,
-      artist: musicResponse.body.tracks[0].artists[0].name,
+      title: dataResponse.body.tracks[0].name,
+      url: dataResponse.body.tracks[0].href,
+      artist: dataResponse.body.tracks[0].artists[0].name,
     }
 
     res.json(track)
@@ -61,13 +60,12 @@ router.get('/news', async (req, res) => {
   }
 })
 
-// GET /api/v1/kanye
+// GET /api/v1/affirmation
 
-router.get('/kanye', async (req, res) => {
+router.get('/affirmation', async (req, res) => {
   try {
-    const kanyeQuote = await request.get('https://api.kanye.rest')
-
-    res.json(kanyeQuote.body)
+    const response = await request.get('https://affirmations.dev')
+    res.json(response.body)
   } catch (error) {
     console.error(error.message)
     res.sendStatus(500)

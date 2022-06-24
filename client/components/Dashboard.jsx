@@ -1,45 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import Widget from './Widget'
+import * as widgets from './widgets'
 import * as api from '../api.js'
 
-//widgetname widgetdata
-
 function Dashboard({ widgetList }) {
-  const [widgets, setWidgets] = useState([])
+  const [widgetData, setWidgetData] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(async () => {
     try {
-      const data = []
-      for (let i = 0; i < widgetList.length; i++) {
-        const widgetData = await api.lookup[widgetList[i]]()
-        console.log(widgetData)
-        data.push(widgetData)
-      }
+      const data = await Promise.allSettled(widgetList.map(widget => api.lookup[widget]()))
 
-      const tempWidgets = []
-
-      for (let i = 0; i < widgetList.length; i++) {
-        const widget = {
-          name: widgetList[i],
-          data: data[i],
+      setWidgetData(widgetList.map((widget, i) => {
+        return {
+          name: widget,
+          data: data[i].status === 'fulfilled' ? data[i].value : null
         }
-        tempWidgets.push(widget)
-      }
-
-      setWidgets(tempWidgets)
+      })
+)
       setLoading(false)
     } catch (error) {
       console.error(error)
     }
   }, [])
 
-  return loading ? (
-    <p>Widgets are still loading</p>
-  ) : (
+  return (
     <>
-      {widgets.map((widget) => {
-        return <Widget widgetName={widget.name} widgetData={widget.data} />
+      {widgetData.map((widget, i) => {
+        return (
+          <div key={`${i}${widget.name}`} className="widget">
+            {widget.data ?            
+            widgets.lookup[widget.name]({name: widget.name, data: widget.data})
+            : 'Could not load widget'}
+          </div>)
       })}
     </>
   )
