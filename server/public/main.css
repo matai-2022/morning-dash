@@ -4,6 +4,18 @@ body {
   font-family:Georgia, 'Times New Roman', Times, serif;
   
   }
+
+  a {
+    color:#FFECD1;
+  }
+
+  button {
+    background-color: #FF7D00;
+    color: #78290F;
+    font-size:large;
+    padding: 10px;
+    border-radius: 12px;
+  }
   
   .container{
   display: flex;
