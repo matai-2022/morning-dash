@@ -48,7 +48,7 @@ router.get('/news', async (req, res) => {
   try {
     const newsResponse = await request
       .get('https://newsapi.org/v2/top-headlines?country=nz')
-      .set('x-api-key', process.env.NEWS_API_KEY)
+      .set('x-api-key', '581d6ac2ce7e463d80507714be7aa2ee')
 
     const headline = {
       title: newsResponse.body.articles[0].title,
