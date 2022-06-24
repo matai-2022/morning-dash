@@ -25,4 +25,10 @@ const getKanye = async () => {
   return res.body
 }
 
-export { getSpotify, getNews, getKanye }
+const lookup = {
+  kanye: getKanye,
+  spotify: getSpotify,
+  news: getNews,
+}
+
+export { getSpotify, getNews, getKanye, lookup }

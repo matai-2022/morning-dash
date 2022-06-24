@@ -4,17 +4,29 @@ import * as api from '../api.js'
 
 //widgetname widgetdata
 
-function Dashboard() {
-  const [data, setData] = useState()
+function Dashboard({ widgetList }) {
+  const [widgets, setWidgets] = useState([])
   const [loading, setLoading] = useState(true)
+
   useEffect(async () => {
     try {
-      // const spotify = await api.getSpotify()
-      // const news = await api.getNews()
-      const kanye = await api.getKanye()
-      setData(kanye)
+      const data = []
+      for (let i = 0; i < widgetList.length; i++) {
+        const widgetData = await api.lookup[widgetList[i]]()
+        data.push(widgetData)
+      }
+
+      const tempWidgets = []
+
+      for (let i = 0; i < widgetList.length; i++) {
+        const widget = {
+          name: widgetList[i],
+          data: data[i],
+        }
+        tempWidgets.push(widget)
+      }
+      setWidgets(tempWidgets)
       setLoading(false)
-      console.log('hi')
     } catch (error) {
       console.error(error)
     }
@@ -24,9 +36,9 @@ function Dashboard() {
     <p>Widgets are still loading</p>
   ) : (
     <>
-      <Widget widgetName="kanye" widgetData={data} />
-      <Widget widgetName="kanye" widgetData={data} />
-      <Widget widgetName="kanye" widgetData={data} />
+      {widgets.map((widget) => {
+        return <Widget widgetName={widget.name} widgetData={widget.data} />
+      })}
     </>
   )
 }

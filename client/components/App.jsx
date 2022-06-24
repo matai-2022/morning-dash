@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import * as api from '../api'
 
@@ -6,6 +6,8 @@ import Dashboard from './Dashboard.jsx'
 import Widget from './Widget.jsx'
 
 function App() {
+  const [widgetList, setWidgetList] = useState(['kanye', 'kanye', 'kanye'])
+
   return (
     <>
       <div className="header">
@@ -13,7 +15,7 @@ function App() {
       </div>
 
       <div className="container">
-        <Dashboard />
+        <Dashboard widgetList={widgetList} />
       </div>
     </>
   )
