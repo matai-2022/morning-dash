@@ -10,17 +10,18 @@ body {
   }
 
   button {
-    background-color: #FF7D00;
-    color: #78290F;
+    background-color: #001524;
+    color: #FFECD1;
     font-size:large;
     padding: 10px;
     border-radius: 12px;
+    margin: 10px;
   }
   
   .container{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   }
   
   .header{
