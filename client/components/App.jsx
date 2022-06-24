@@ -8,7 +8,13 @@ import Widget from './Widget.jsx'
 function App() {
   return (
     <>
-      <Dashboard />
+      <div className="header">
+        <h1>morning dash</h1>
+      </div>
+
+      <div className="container">
+        <Dashboard />
+      </div>
     </>
   )
 }

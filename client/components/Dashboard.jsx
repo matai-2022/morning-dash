@@ -24,7 +24,9 @@ function Dashboard() {
     <p>Widgets are still loading</p>
   ) : (
     <>
-      <Widget widgetName="Kanye" widgetData={data} />
+      <Widget widgetName="kanye" widgetData={data} />
+      <Widget widgetName="kanye" widgetData={data} />
+      <Widget widgetName="kanye" widgetData={data} />
     </>
   )
 }
