@@ -7,7 +7,7 @@ import AddWidget from './AddWidget.jsx'
 
 function App() {
   const [isAddWidgetVisible, setIsAddWidgetVisible] = useState(false)
-  const [widgetList, setWidgetList] = useState(['spotify', 'kanye', 'news'])
+  const [widgetList, setWidgetList] = useState(['spotify', 'kanye', 'affirmation'])
 
   function handleClick(event) {
     setIsAddWidgetVisible(true)
