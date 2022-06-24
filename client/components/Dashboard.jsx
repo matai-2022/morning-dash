@@ -13,6 +13,7 @@ function Dashboard({ widgetList }) {
       const data = []
       for (let i = 0; i < widgetList.length; i++) {
         const widgetData = await api.lookup[widgetList[i]]()
+        console.log(widgetData)
         data.push(widgetData)
       }
 
@@ -25,6 +26,7 @@ function Dashboard({ widgetList }) {
         }
         tempWidgets.push(widget)
       }
+
       setWidgets(tempWidgets)
       setLoading(false)
     } catch (error) {
